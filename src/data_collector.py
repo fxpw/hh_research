@@ -101,6 +101,9 @@ class DataCollector:
         vacancy = requests.get(url).json()
 
         # Extract salary
+        contacts = vacancy.get("contacts")
+        if(contacts):
+            print(contacts)
         salary = vacancy.get("salary")
 
         # Calculate salary:

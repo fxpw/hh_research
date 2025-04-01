@@ -27,11 +27,11 @@ OR CORRECTION.
 
 ------------------------------------------------------------------------
 """
-
 # Authors       : Alexander Kapitanov
 # ...
 # Contacts      : <empty>
 # License       : GNU GENERAL PUBLIC LICENSE
+from datetime import datetime
 
 import re
 from typing import Dict, List
@@ -138,7 +138,9 @@ class Analyzer:
         # Save to file
         if self.save_csv:
             print("\n\n[INFO]: Save dataframe to file...")
-            df.to_csv(rf"hh_results.csv", index=False)
+            current_date = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+            df.to_csv(f"csv/hh_results_{current_date}.csv", index=False)
+            df.to_excel(f"xlsx/hh_results_{current_date}.xlsx")
         return df
 
     def analyze_df(self, df: pd.DataFrame):

@@ -108,5 +108,6 @@ venv.bak/
 .mypy_cache/
 
 *.csv
+*.xlsx
 src/cache/**/*
 !src/cache/.gitkeep
